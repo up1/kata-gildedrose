@@ -13,13 +13,34 @@ class GildedRose {
     }
 
     private void updateQualityOfNormal() {
-        this.quality -=1;
+        this.daysRemaining -= 1;
+        if (this.quality == 0) {
+            return;
+        }
+
+        this.quality -= 1;
+
+        if (this.daysRemaining <= 0) {
+            this.quality -= 1;
+        }
     }
+
+    private void updateQualityOfAgedBrie() {
+        this.daysRemaining -= 1;
+        this.quality += 1;
+        if (this.daysRemaining <= 0) {
+            this.quality += 1;
+        }
+    }
+
 
     public void updateQuality() {
 
-        if(name.equals("normal")) {
+        if (name.equals("normal")) {
             updateQualityOfNormal();
+            return;
+        } else if (name.equals("Aged Brie")) {
+            updateQualityOfAgedBrie();
             return;
         }
 
@@ -73,6 +94,8 @@ class GildedRose {
         }
 
     }
+
+
 
 
     public int getQuality() {
