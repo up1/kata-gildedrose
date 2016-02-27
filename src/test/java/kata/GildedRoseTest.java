@@ -211,5 +211,4 @@ public class GildedRoseTest {
         assertEquals(0, gildedRose.getQuality());
     }
 
-
 }

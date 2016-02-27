@@ -12,7 +12,17 @@ class GildedRose {
         this.daysRemaining = daysRemaining;
     }
 
+    private void updateQualityOfNormal() {
+        this.quality -=1;
+    }
+
     public void updateQuality() {
+
+        if(name.equals("normal")) {
+            updateQualityOfNormal();
+            return;
+        }
+
         if (!name.equals("Aged Brie")
                 && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (quality > 0) {
@@ -63,6 +73,7 @@ class GildedRose {
         }
 
     }
+
 
     public int getQuality() {
         return quality;
