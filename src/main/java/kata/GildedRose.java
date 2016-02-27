@@ -12,8 +12,8 @@ class GildedRose {
         this.daysRemaining = daysRemaining;
     }
 
-    public void tick() {
-        if (name.equals("Aged Brie")
+    public void updateQuality() {
+        if (!name.equals("Aged Brie")
                 && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (quality > 0) {
                 if (!name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -62,6 +62,10 @@ class GildedRose {
             }
         }
 
+    }
+
+    public int getQuality() {
+        return quality;
     }
 }
 
