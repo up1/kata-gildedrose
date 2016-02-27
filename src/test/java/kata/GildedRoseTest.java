@@ -127,13 +127,6 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void backstage_pass_medium_close_to_sell_date_lower_bound_with_max_quality2() {
-        GildedRose gildedRose = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 49, 9);
-        gildedRose.updateQuality();
-        assertEquals(50, gildedRose.getQuality());
-    }
-
-    @Test
     public void
     backstage_pass_very_close_to_sell_date_upper_bound() {
         GildedRose gildedRose = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 10, 5);
@@ -144,13 +137,6 @@ public class GildedRoseTest {
     @Test
     public void backstage_pass_very_close_to_sell_date_upper_bound_with_max_quatity() {
         GildedRose gildedRose = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 50, 5);
-        gildedRose.updateQuality();
-        assertEquals(50, gildedRose.getQuality());
-    }
-
-    @Test
-    public void backstage_pass_very_close_to_sell_date_upper_bound_with_max_quatity2() {
-        GildedRose gildedRose = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 49, 5);
         gildedRose.updateQuality();
         assertEquals(50, gildedRose.getQuality());
     }

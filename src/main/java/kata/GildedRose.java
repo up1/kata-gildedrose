@@ -27,10 +27,35 @@ class GildedRose {
 
     private void updateQualityOfAgedBrie() {
         this.daysRemaining -= 1;
+        if (this.quality >= 50) {
+            return;
+        }
         this.quality += 1;
         if (this.daysRemaining <= 0) {
             this.quality += 1;
         }
+    }
+
+    private void updateQualityOfBackstage() {
+        this.daysRemaining -= 1;
+        if (this.quality >= 50) {
+            return;
+        }
+        if (this.daysRemaining < 0) {
+            this.quality = 0;
+            return;
+        }
+        this.quality += 1;
+        if (this.daysRemaining < 10) {
+            this.quality += 1;
+        }
+        if (this.daysRemaining < 5) {
+            this.quality += 1;
+        }
+    }
+
+    private void updateQualityOfSulfuras() {
+
     }
 
 
@@ -42,60 +67,14 @@ class GildedRose {
         } else if (name.equals("Aged Brie")) {
             updateQualityOfAgedBrie();
             return;
+        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+            updateQualityOfSulfuras();
+            return;
+        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            updateQualityOfBackstage();
+            return;
         }
-
-        if (!name.equals("Aged Brie")
-                && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (quality > 0) {
-                if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                    quality -= 1;
-                }
-            }
-        } else {
-            if (quality < 50) {
-                quality += 1;
-
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (daysRemaining < 11) {
-                        if (quality < 50) {
-                            quality += 1;
-                        }
-                    }
-
-                    if (daysRemaining < 6) {
-                        if (quality < 50) {
-                            quality += 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-            daysRemaining -= 1;
-        }
-
-        if (daysRemaining < 0) {
-            if (!name.equals("Aged Brie")) {
-                if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (quality > 0) {
-                        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                            quality -= 1;
-                        }
-                    }
-                } else {
-                    quality = 0;
-                }
-            } else {
-                if (quality < 50) {
-                    quality += 1;
-                }
-            }
-        }
-
     }
-
-
 
 
     public int getQuality() {
